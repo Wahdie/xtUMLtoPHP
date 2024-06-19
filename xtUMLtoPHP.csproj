@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{505EA078-BC22-4F18-96AC-C3B339A7B3D2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>xtUML1</RootNamespace>
+    <AssemblyName>xtUML1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Graphviz, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Graphviz.2.38.0.2\lib\Graphviz.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphVizWrapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GraphViz.NET.1.0.0\lib\net40\GraphVizWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>packages\MindFusion.Pack.WinForms.2022.2.0\lib\net6.0\Microsoft.Office.Interop.Outlook.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Barcodes">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Common">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Common.WinForms">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Common.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming" Version="6.8.4">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml" Version="2.19.0">
+      <HintPath>packages\DocumentFormat.OpenXml.2.19.0\lib\net6.0\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.EffectsProvider">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.EffectsProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Dxf">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Dxf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Excel">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Pdf">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Svg">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Swf">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Swf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Visio">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Visio.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Wmf">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Wmf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Import.Draw">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Import.Draw.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Import.Svg">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Import.Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Import.Visio">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Import.Visio.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.WinForms">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.WinForms.Controls">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.WinForms.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Graphs">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Licensing">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Mapping">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Mapping.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Pack.WinForms" Version="2022.2.0" />
+    <Reference Include="MindFusion.Pdf">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Scripting">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Svg">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Swf">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Swf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Tools.ShapeDesigner">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Tools.ShapeDesigner.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Vsx">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Vsx.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Zip">
+      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Visualize.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDiagram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDiagram.Designer.cs">
+      <DependentUpon>FormDiagram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parsing.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Translate.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDiagram.resx">
+      <DependentUpon>FormDiagram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
