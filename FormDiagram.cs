@@ -167,7 +167,7 @@ namespace xtUML1
                                     var linkLabel = new LinkLabel(link, labelText);
                                     linkLabel.RelativeTo = RelativeToLink.LinkLength;
                                     linkLabel.LengthFactor = 1;
-                                    linkLabel.SetLinkLengthPosition(0.27f);
+                                    linkLabel.SetLinkLengthPosition(0.29f);
                                     link.AddLabel(linkLabel);
                                 }
                             }
@@ -202,7 +202,7 @@ namespace xtUML1
                                         var linkLabel1 = new LinkLabel(link, labelText1);
                                         linkLabel1.RelativeTo = RelativeToLink.LinkLength;
                                         linkLabel1.LengthFactor = 1;
-                                        linkLabel1.SetLinkLengthPosition(0.23f);
+                                        linkLabel1.SetLinkLengthPosition(0.29f);
 
                                         var labelText2 = $" {cls2.RoleName} \n({cls2.Multiplicity}) ";
                                         var linkLabel2 = new LinkLabel(link, labelText2);
