@@ -6,10 +6,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System;
-using MindFusion.Diagramming.Components;
+using MindFusion.Drawing;
 using static xtUML1.Form1;
 using System.Drawing;
 using static xtUML1.Visualize;
+using MindFusion.Graphs;
+using Rect = MindFusion.Graphs.Rectangle;
+using Pen = System.Drawing.Pen;
+using Brush = System.Drawing.Brush;
+using SolidBrush = System.Drawing.SolidBrush;
+using Font = System.Drawing.Font;
+using Color = System.Drawing.Color;
+using static xtUML1.Translate.JsonData;
+using LinkLabel = MindFusion.Diagramming.LinkLabel;
 
 namespace xtUML1
 {
@@ -42,15 +51,16 @@ namespace xtUML1
                 Show();
             }
         }
+
         private void CreateDiagram(List<ClassModel> classList, List<AssociationModel> associationList)
         {
             if (diagramView != null && diagramView.Diagram != null)
             {
                 var diagram = diagramView.Diagram;
-                diagram.ClearAll(); // Clear existing nodes and links
+                diagram.ClearAll(); 
 
-                var nodes = new Dictionary<string, ShapeNode>();
-                var processedAssociations = new HashSet<string>(); // To avoid duplicate associations
+                var nodes = new Dictionary<string, DiagramNode>();
+                var processedAssociations = new HashSet<string>();
 
                 // Process classes
                 foreach (var cls in classList)
@@ -58,8 +68,14 @@ namespace xtUML1
                     int x = (cls.ClassId.GetHashCode() % 2 == 0) ? 100 : 300;
                     int y = (cls.ClassId.GetHashCode() / 2) * 50 + 10;
 
-                    var currentNode = diagram.Factory.CreateShapeNode(x, y, 60, 50); // Smaller node size
-                    currentNode.Text = $"Class ID: {cls.ClassId}\n+{cls.ClassName}\n({cls.KL})";
+                    var currentNode = diagram.Factory.CreateTableNode(0, 0, 80, 60, 2, 2);
+                    currentNode.Caption = $"+{cls.ClassName}";
+
+                    currentNode.CellFrameStyle = CellFrameStyle.Simple;
+                    currentNode.Brush = new MindFusion.Drawing.SolidBrush(Color.FromArgb(214, 213, 142));
+                    currentNode.CaptionBackBrush = new MindFusion.Drawing.SolidBrush(Color.FromArgb(159, 193, 49));
+
+
                     var associationName = associationList
                         .Where(assoc => assoc.Classes.Any(c => c.ClassId == cls.ClassId))
                         .Select(assoc => assoc.Name)
@@ -67,20 +83,26 @@ namespace xtUML1
 
                     if (cls.Attributes.Any())
                     {
-                        currentNode.Text += "\n---------------------------------------------------";
                         foreach (var attr in cls.Attributes)
                         {
+                            currentNode.AddRow();
+                            int r = currentNode.RowCount - 1;
+
                             if (attr.AttributeType == "referential_attribute")
                             {
-                                currentNode.Text += $"\n {attr.AttributeName} : {attr.DataType}   ({associationName})";
+                                currentNode[0, r].Text = attr.AttributeName;
+                                currentNode[1, r].Text = attr.DataType + $" ({associationName})";
                             }
                             else
                             {
-                                currentNode.Text += $"\n {attr.AttributeName} : {attr.DataType}";
+                                currentNode[0, r].Text = attr.AttributeName;
+                                currentNode[1, r].Text = attr.DataType;
                             }
                         }
                     }
-
+                    currentNode.ResizeToFitText(false, false);
+                    currentNode.Caption = cls.ClassName;
+                    currentNode.ConnectionStyle = TableConnectionStyle.Table;
                     nodes[cls.ClassId] = currentNode;
                 }
 
@@ -93,39 +115,61 @@ namespace xtUML1
                         int x = (assocClass.ClassId.GetHashCode() % 2 == 0) ? 200 : 400;
                         int y = (assocClass.ClassId.GetHashCode() / 2) * 50 + 30;
 
-                        var assocClassNode = diagram.Factory.CreateShapeNode(x, y, 60, 50); 
-                        assocClassNode.Text = $"Assoc Class ID: {assocClass.ClassId}\n+{assocClass.ClassName}\n({assocClass.KL})";
+                        var assocClassNode = diagram.Factory.CreateTableNode(0, 0, 80, 60, 2, 2);
+                        assocClassNode.Caption = $"+{assocClass.ClassName}";
+
+                        assocClassNode.CellFrameStyle = CellFrameStyle.Simple;
+                        assocClassNode.Brush = new MindFusion.Drawing.SolidBrush(Color.FromArgb(214, 213, 142));
+                        assocClassNode.CaptionBackBrush = new MindFusion.Drawing.SolidBrush(Color.FromArgb(159, 193, 49));
+
+
+                        
 
                         if (assocClass.Attributes.Any())
                         {
-                            assocClassNode.Text += "\n---------------------------------------------------";
                             foreach (var attr in assocClass.Attributes)
                             {
+                                assocClassNode.AddRow();
+                                int r = assocClassNode.RowCount - 1;
+
                                 if (attr.AttributeType == "referential_attribute")
                                 {
-                                    assocClassNode.Text += $"\n {attr.AttributeName} : {attr.DataType}   ({assoc.Name})";
+                                    assocClassNode[0, r].Text = attr.AttributeName;
+                                    assocClassNode[1, r].Text = attr.DataType + $" ({assoc.Name})";
                                 }
                                 else
                                 {
-                                    assocClassNode.Text += $"\n {attr.AttributeName} : {attr.DataType}";
-
+                                    assocClassNode[0, r].Text = attr.AttributeName;
+                                    assocClassNode[1, r].Text = attr.DataType;
                                 }
                             }
-                        }
+                            
 
+                        }
+                        assocClassNode.ResizeToFitText(false, false);
+                        assocClassNode.Caption = assocClass.ClassName;
+                        assocClassNode.ConnectionStyle = TableConnectionStyle.Table;
                         nodes[assocClass.ClassId] = assocClassNode;
 
                         foreach (var cls in assoc.Classes)
                         {
-                            if (nodes.ContainsKey(cls.ClassId))
+                            if (nodes != null && nodes.TryGetValue(cls.ClassId, out var fromNode))
                             {
-                                var fromNode = nodes[cls.ClassId];
                                 var toNode = assocClassNode;
+                                if (diagram?.Factory != null)
+                                {
+                                    var link = diagram.Factory.CreateDiagramLink(fromNode, toNode);
+                                    link.Text = assoc.Name;
+                                    link.HeadShapeSize = 0;
+                                    link.BaseShapeSize = 0;
 
-                                var link = diagram.Factory.CreateDiagramLink(fromNode, toNode);
-                                link.Text = $"{cls.ClassName} : {cls.Multiplicity} \n\n\n{assoc.Name}\n ";
-                                link.HeadShapeSize = 0;
-                                link.BaseShapeSize = 0;     
+                                    var labelText = $"({cls.Multiplicity}) \n {cls.RoleName}";
+                                    var linkLabel = new LinkLabel(link, labelText);
+                                    linkLabel.RelativeTo = RelativeToLink.LinkLength;
+                                    linkLabel.LengthFactor = 1;
+                                    linkLabel.SetLinkLengthPosition(0.27f);
+                                    link.AddLabel(linkLabel);
+                                }
                             }
                         }
                     }
@@ -150,11 +194,25 @@ namespace xtUML1
                                         var toNode = nodes[cls2.ClassId];
 
                                         var link = diagram.Factory.CreateDiagramLink(fromNode, toNode);
-                                        link.Text = $"{cls1.ClassName} : {cls1.Multiplicity} \n\n\n {assoc.Name}\n\n\n {cls2.ClassName} : {cls2.Multiplicity}";
+                                        link.Text = assoc.Name;
                                         link.HeadShapeSize = 0;
                                         link.BaseShapeSize = 0;
-                                        link.TextAlignment = StringAlignment.Far;
-                                        
+
+                                        var labelText1 = $"({cls1.Multiplicity}) \n {cls1.RoleName}";
+                                        var linkLabel1 = new LinkLabel(link, labelText1);
+                                        linkLabel1.RelativeTo = RelativeToLink.LinkLength;
+                                        linkLabel1.LengthFactor = 1;
+                                        linkLabel1.SetLinkLengthPosition(0.23f);
+
+                                        var labelText2 = $" {cls2.RoleName} \n({cls2.Multiplicity}) ";
+                                        var linkLabel2 = new LinkLabel(link, labelText2);
+                                        linkLabel2.RelativeTo = RelativeToLink.LinkLength;
+                                        linkLabel2.LengthFactor = 1;
+                                        linkLabel2.SetLinkLengthPosition(0.99f);
+                                        link.AddLabel(linkLabel1);
+                                        link.AddLabel(linkLabel2);
+                                        link.AddLabel(linkLabel1);
+
                                     }
                                 }
                             }
@@ -165,131 +223,20 @@ namespace xtUML1
                 // Arrange the diagram
                 var layout = new LayeredLayout
                 {
-                    LayerDistance = 100, // Reduced layer distance for compactness
-                    NodeDistance = 80 // Reduced node distance for compactness
+                    EnforceLinkFlow = true,
+                    IgnoreNodeSize = false,
+                    NodeDistance = 50,
+                    LayerDistance = 40
                 };
                 layout.Arrange(diagram);
-                diagram.ResizeToFitItems(10); // Reduced margin to fit diagram size
+                diagram.ResizeToFitItems(5);
             }
         }
-
-        /*private void CreateDiagram(List<ClassModel> classList, List<AssociationModel> associationList)
-        {
-            if (diagramView != null && diagramView.Diagram != null)
-            {
-                var diagram = diagramView.Diagram;
-                diagram.ClearAll();
-
-                var nodes = new Dictionary<string, ShapeNode>();
-                var processedAssociations = new HashSet<string>(); // Untuk menghindari duplikasi asosiasi
-
-                // Proses kelas
-                foreach (var cls in classList)
-                {
-                    int x = (cls.ClassId.GetHashCode() % 2 == 0) ? 100 : 300;
-                    int y = (cls.ClassId.GetHashCode() / 2) * 100 + 10; // Tingkatkan jarak vertikal untuk kerapian
-
-                    var currentNode = diagram.Factory.CreateShapeNode(x, y, 80, 60); // Ukuran node diperkecil
-                    currentNode.Text = $"Class ID: {cls.ClassId}\nClass Name: {cls.ClassName}\nKL: {cls.KL}";
-
-                    if (cls.Attributes.Any())
-                    {
-                        currentNode.Text += "\nAttributes:";
-                        foreach (var attr in cls.Attributes)
-                        {
-                            currentNode.Text += $"\n- {attr.AttributeType}: {attr.AttributeName} ({attr.DataType})";
-                        }
-                    }
-
-                    nodes[cls.ClassId] = currentNode;
-                }
-
-                // Proses asosiasi
-                foreach (var assoc in associationList)
-                {
-                    if (assoc.AssociationClass != null)
-                    {
-                        var assocClass = assoc.AssociationClass;
-                        int x = (assocClass.ClassId.GetHashCode() % 2 == 0) ? 200 : 400;
-                        int y = (assocClass.ClassId.GetHashCode() / 2) * 100 + 50; // Tingkatkan jarak vertikal untuk kerapian
-
-                        var assocClassNode = diagram.Factory.CreateShapeNode(x, y, 80, 60); // Ukuran node diperkecil
-                        assocClassNode.Text = $"Assoc Class ID: {assocClass.ClassId}\nClass Name: {assocClass.ClassName}\nKL: {assocClass.KL}";
-
-                        if (assocClass.Attributes.Any())
-                        {
-                            assocClassNode.Text += "\nAttributes:";
-                            foreach (var attr in assocClass.Attributes)
-                            {
-                                assocClassNode.Text += $"\n- {attr.AttributeType}: {attr.AttributeName} ({attr.DataType})";
-                            }
-                        }
-
-                        nodes[assocClass.ClassId] = assocClassNode;
-                    }
-
-                    foreach (var cls in assoc.Classes)
-                    {
-                        var assocKey = assoc.AssociationClass != null
-                            ? $"{assoc.Name}-{cls.ClassId}-{assoc.AssociationClass.ClassId}"
-                            : $"{assoc.Name}-{cls.ClassId}";
-
-                        if (!processedAssociations.Contains(assocKey))
-                        {
-                            processedAssociations.Add(assocKey);
-
-                            if (assoc.AssociationClass != null)
-                            {
-                                if (nodes.ContainsKey(cls.ClassId) && nodes.ContainsKey(assoc.AssociationClass.ClassId))
-                                {
-                                    var fromNode = nodes[cls.ClassId];
-                                    var toNode = nodes[assoc.AssociationClass.ClassId];
-
-                                    var link = diagram.Factory.CreateDiagramLink(fromNode, toNode);
-                                    link.Text = $"Association: {assoc.Name}";
-                                    link.HeadShapeSize = 0;
-                                    link.BaseShapeSize = 0;
-                                }
-                            }
-                            else
-                            {
-                                foreach (var otherCls in assoc.Classes)
-                                {
-                                    if (cls.ClassId != otherCls.ClassId)
-                                    {
-                                        var linkKey = $"{cls.ClassId}-{otherCls.ClassId}";
-                                        if (!processedAssociations.Contains(linkKey))
-                                        {
-                                            processedAssociations.Add(linkKey);
-
-                                            if (nodes.ContainsKey(cls.ClassId) && nodes.ContainsKey(otherCls.ClassId))
-                                            {
-                                                var fromNode = nodes[cls.ClassId];
-                                                var toNode = nodes[otherCls.ClassId];
-
-                                                var link = diagram.Factory.CreateDiagramLink(fromNode, toNode);
-                                                link.Text = $"Association: {assoc.Name}";
-                                                link.HeadShapeSize = 0;
-                                                link.BaseShapeSize = 0;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                // Arrange the diagram
-                var layout = new LayeredLayout
-                {
-                    LayerDistance = 100, // Kurangi jarak antar lapisan untuk merapikan diagram
-                    NodeDistance = 100 // Kurangi jarak antar node untuk merapikan diagram
-                };
-                layout.Arrange(diagram);
-                diagram.ResizeToFitItems(10); // Kurangi margin untuk menyesuaikan ukuran diagram
-            }
-        }*/
-
     }
 }
+
+
+
+
+
+

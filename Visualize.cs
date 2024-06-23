@@ -61,7 +61,7 @@ namespace xtUML1
                     dataBuilder.AppendLine("Classes:");
                     foreach (var cls in assoc.Classes)
                     {
-                        dataBuilder.AppendLine($"  - Class ID: {cls.ClassId}, Name: {cls.ClassName}, Multiplicity: {cls.Multiplicity}");
+                        dataBuilder.AppendLine($"  - Class ID: {cls.ClassId}, Name: {cls.ClassName}, Multiplicity: {cls.Multiplicity}, Role : {cls.RoleName}");
                     }
 
                     if (assoc.AssociationClass != null)
@@ -112,7 +112,7 @@ namespace xtUML1
                 string dataType = attribute["data_type"].ToString();
 
                 var attributeModel = new AttributeModel
-                {///\\]]]]
+                {
                     AttributeType = attributeType,
                     AttributeName = attributeName,
                     DataType = dataType
@@ -137,12 +137,14 @@ namespace xtUML1
                 string assocClassId = assocClass["class_id"].ToString();
                 string assocClassName = assocClass["class_name"].ToString();
                 string assocClassMultiplicity = assocClass["class_multiplicity"].ToString();
+                string assocClassRole = assocClass["role_name"].ToString();
 
                 var assocClassModel = new AssocClass
                 {
                     ClassId = assocClassId,
                     ClassName = assocClassName,
-                    Multiplicity = assocClassMultiplicity
+                    Multiplicity = assocClassMultiplicity,
+                    RoleName = assocClassRole
                 };
 
                 associationModel.Classes.Add(assocClassModel);
@@ -212,6 +214,8 @@ namespace xtUML1
             public string ClassId { get; set; }
             public string ClassName { get; set; }
             public string Multiplicity { get; set; }
+            public string RoleName { get; set; }
+
         }
 
     }

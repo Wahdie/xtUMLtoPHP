@@ -44,90 +44,135 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>packages\MindFusion.Pack.WinForms.2022.2.0\lib\net6.0\Microsoft.Office.Interop.Outlook.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Barcodes">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Barcodes.dll</HintPath>
-    </Reference>
-    <Reference Include="MindFusion.Common">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="MindFusion.Common.WinForms">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Common.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="MindFusion.Diagramming" Version="6.8.4">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.dll</HintPath>
-    </Reference>
     <Reference Include="DocumentFormat.OpenXml" Version="2.19.0">
       <HintPath>packages\DocumentFormat.OpenXml.2.19.0\lib\net6.0\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.EffectsProvider">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.EffectsProvider.dll</HintPath>
+    <Reference Include="MindFusion.Barcodes, Version=1.0.3.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Barcodes.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.Export.Dxf">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Dxf.dll</HintPath>
+    <Reference Include="MindFusion.Barcodes.WinForms, Version=1.0.3.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Barcodes.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.Export.Excel">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Excel.dll</HintPath>
+    <Reference Include="MindFusion.Charting, Version=4.3.0.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Charting.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.Export.Pdf">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Pdf.dll</HintPath>
+    <Reference Include="MindFusion.Charting.WinForms, Version=4.3.0.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Charting.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.Export.Svg">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Svg.dll</HintPath>
+    <Reference Include="MindFusion.Common, Version=1.3.8.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Common.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.Export.Swf">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Swf.dll</HintPath>
+    <Reference Include="MindFusion.Common.WinForms, Version=1.0.4.452, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Common.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.Export.Visio">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Visio.dll</HintPath>
+    <Reference Include="MindFusion.DataBinding, Version=2.5.4.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.DataBinding.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.Export.Wmf">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Export.Wmf.dll</HintPath>
+    <Reference Include="MindFusion.Diagramming, Version=7.0.2.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Diagramming.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.Import.Draw">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Import.Draw.dll</HintPath>
+    <Reference Include="MindFusion.Diagramming.EffectsProvider, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Diagramming.7.0.2\lib\net45\MindFusion.Diagramming.EffectsProvider.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.Import.Svg">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Import.Svg.dll</HintPath>
+    <Reference Include="MindFusion.Diagramming.Export.Dxf, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Diagramming.7.0.2\lib\net45\MindFusion.Diagramming.Export.Dxf.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.Import.Visio">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.Import.Visio.dll</HintPath>
+    <Reference Include="MindFusion.Diagramming.Export.Excel, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Diagramming.7.0.2\lib\net45\MindFusion.Diagramming.Export.Excel.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.WinForms">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.WinForms.dll</HintPath>
+    <Reference Include="MindFusion.Diagramming.Export.Pdf, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Diagramming.Export.Pdf.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Diagramming.WinForms.Controls">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Diagramming.WinForms.Controls.dll</HintPath>
+    <Reference Include="MindFusion.Diagramming.Export.Svg, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Diagramming.Export.Svg.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Graphs">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Graphs.dll</HintPath>
+    <Reference Include="MindFusion.Diagramming.Export.Swf, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Diagramming.7.0.2\lib\net45\MindFusion.Diagramming.Export.Swf.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Licensing">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Licensing.dll</HintPath>
+    <Reference Include="MindFusion.Diagramming.Export.Visio, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Diagramming.Export.Visio.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Mapping">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Mapping.dll</HintPath>
+    <Reference Include="MindFusion.Diagramming.Export.Wmf, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Diagramming.7.0.2\lib\net45\MindFusion.Diagramming.Export.Wmf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Import.Draw, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Diagramming.7.0.2\lib\net45\MindFusion.Diagramming.Import.Draw.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Import.Svg, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Diagramming.7.0.2\lib\net45\MindFusion.Diagramming.Import.Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Import.Visio, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Diagramming.7.0.2\lib\net45\MindFusion.Diagramming.Import.Visio.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.WinForms, Version=7.0.2.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Diagramming.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.WinForms.Controls, Version=7.0.2.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Diagramming.WinForms.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Gauges, Version=1.0.1.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Gauges.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Gauges.WinForms, Version=1.0.1.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Gauges.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Graphs, Version=2.3.3.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Keyboard.WinForms, Version=5.0.3.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Keyboard.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Licensing, Version=1.0.6.400, Culture=neutral, PublicKeyToken=9d02e21d957ddaef, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Mapping, Version=2.0.3.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Mapping.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Mapping.WinForms, Version=2.0.2.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Mapping.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="MindFusion.Pack.WinForms" Version="2022.2.0" />
-    <Reference Include="MindFusion.Pdf">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Pdf.dll</HintPath>
+    <Reference Include="MindFusion.Pdf, Version=1.3.2.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Pdf.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Scripting">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Scripting.dll</HintPath>
+    <Reference Include="MindFusion.Reporting, Version=2.5.4.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Reporting.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Svg">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Svg.dll</HintPath>
+    <Reference Include="MindFusion.Reporting.WinForms, Version=2.5.4.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Reporting.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Swf">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Swf.dll</HintPath>
+    <Reference Include="MindFusion.Scheduling, Version=5.8.3.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Scheduling.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Scheduling.Pdf, Version=5.8.3.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Scheduling.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Scripting, Version=1.0.3.452, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Spreadsheet.WinForms, Version=1.7.5.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Spreadsheet.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Spreadsheet.WinForms.StandardForms, Version=1.7.5.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Spreadsheet.WinForms.StandardForms.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Svg, Version=1.2.4.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Swf, Version=1.0.2.452, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Diagramming.7.0.2\lib\net45\MindFusion.Swf.dll</HintPath>
     </Reference>
     <Reference Include="MindFusion.Tools.ShapeDesigner">
       <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Tools.ShapeDesigner.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Vsx">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Vsx.dll</HintPath>
+    <Reference Include="MindFusion.UI.WinForms, Version=1.2.1.450, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.UI.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="MindFusion.Zip">
-      <HintPath>packages\MindFusion.Diagramming.6.8.4\lib\net45\MindFusion.Zip.dll</HintPath>
+    <Reference Include="MindFusion.Vsx, Version=1.0.4.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Pack.WinForms.2024.1.0\lib\net472\MindFusion.Vsx.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Zip, Version=1.0.1.451, Culture=neutral, PublicKeyToken=dd7449df9ffcc455, processorArchitecture=MSIL">
+      <HintPath>packages\MindFusion.Diagramming.7.0.2\lib\net45\MindFusion.Zip.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>

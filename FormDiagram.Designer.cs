@@ -1,34 +1,4 @@
-﻿/*namespace xtUML1
-{
-    partial class FormDiagram
-    {
-        private MindFusion.Diagramming.WinForms.DiagramView diagramView;
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private MindFusion.Diagramming.Diagram diagram;
-        private System.Windows.Forms.TextBox textBox1;
-
-    }
-}*/
-
-namespace xtUML1
+﻿namespace xtUML1
 {
     partial class FormDiagram
     {
@@ -88,7 +58,7 @@ namespace xtUML1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 500);
             this.Name = "FormDiagram";
-            this.Text = "Diagram Form";
+            this.Text = "Class Diagram";
         }
     }
 }
